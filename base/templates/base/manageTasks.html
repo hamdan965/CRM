@@ -1,0 +1,49 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<div class="dropup">
+    <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Add
+    </a>
+  
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="{% url 'addTask' %}">New Task</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+  </div>
+  <div>
+    <table class="table table-dark table-hover table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">ID ~ #</th>
+          <th scope="col">Date</th>
+          <th scope="col">Task</th>
+          <th scope="col">Client</th>
+          <th scope="col">Assignee</th>
+          <th scope="col">Progress</th>
+          <th scope="col">Due Date</th>
+          <th scope="col">Post Date</th>
+          <th scope="col">Content</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for work in works %}
+          <tr>
+            <th scope="row">{{work.id}}</th>
+            <td>{{work.date}}</td>
+            <td>{{work.task}}</td>
+            <td>{{work.client}}</td>
+            <td>{{work.asignee}}</td>
+            <td>{{work.progress}}</td>
+            <td>{{work.due}}</td>
+            <td>{{work.post}}</td>
+            <td colspan="2"><a href="/description/{{work.id}}/">{{work.content}}</a></td>
+            <td><a href="{% url 'updateTask' work.id %}">Update room</a>
+            <a href="{% url 'deleteTask' work.id %}">delete</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}
