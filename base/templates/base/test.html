@@ -1,0 +1,17 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<h1>write an instruction</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="user_input">
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+
+{% if response %}
+    <div>
+        {{ response }}
+    </div>
+{% endif %}
+{% endblock content %}

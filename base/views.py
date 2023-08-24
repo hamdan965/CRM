@@ -2,6 +2,13 @@ from django.shortcuts import render, redirect
 from .models import Work
 from .forms import WorkForm
 
+import openai
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+
+
 def home(request):
     return render(request, 'base/home.html')
 
@@ -50,5 +57,28 @@ def deleteTask(request, pk):
         work.delete()
         return redirect('manageTasks')
     return render(request, 'base/deleteTask.html', {'obj':work})
+
+
+
+api_key = os.getenv("OPENAI_KEY", None)
+
+def test(request):
+    chatbot_response = None
+    if api_key is not None and request.method == 'POST':
+        openai.api_key = api_key
+        user_input = request.POST.get('user_input')
+        prompt = user_input
+
+        completion = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages = [
+                {"role":"user", "content":prompt}
+            ],
+            max_tokens = 256,
+            temperature = 0.5
+            )
+        print(completion)
+        chatbot_response = completion.choices[0].message['content']
+    return render(request, 'base/test.html',{"response": chatbot_response})
         
 

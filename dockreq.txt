@@ -1,0 +1,2 @@
+pip install openapi
+pip install python-dotenv
