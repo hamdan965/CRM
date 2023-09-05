@@ -8,6 +8,9 @@ class Client(models.Model):
 
     def __str__(self):
         return self.name
+    
+class employee(models.Model):
+    name = models.CharField(max_length=200)
 
 class Work(models.Model):
     client = models.ForeignKey(Client,on_delete=models.SET_NULL, null=True)
