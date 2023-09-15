@@ -92,6 +92,11 @@
                     </div>
                 </div>
             </nav>
+            <div>
+                {% if request.user.is_authenticated %}
+                
+                {% endif %}
+            </div>
             <div class="templates" style="align-items: center; justify-content: center; margin-top: 50vh;">
                 {% block content %}
                 {% endblock content %}
