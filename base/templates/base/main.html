@@ -1,111 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Template</title>
     <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="{% static "styles/main.css" %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css">
 </head>
-<body class="bg-dark" style="color: white; overflow-x: none;">
-    <div class="row">
-        <!-- navbar -->
-        <div class="col-2 bg-secondary text-center" style="height: 100vh;">
-            <!-- company profile logo -->
-            <div class="row pt-5">
-                <div class="companylogo">
-                    <img src="mainprofilelogo.png" alt="company Logo">
-                </div>
-                <h2>Company</h2>
-            </div>
-            <!-- navlinks -->
-            <div class="row pt-5 navlinks">
-                <a href="" style="text-decoration: none; color: white; background-color: greenyellow;">
-                    <div class="row pb-3 pt-3">
-                        <h5>Dashboard</h5>
-                    </div>
+<body style="background-color: #dfe5ff;">
+    <div class="topnav container-fluid row">
+        <a href="" class="logo col">
+            <img src="{% static "images/logo.png" %}" height="50px" alt="Logo">
+        </a>
+        <div class="profile col">
+            <div class="topnav_buttons">
+                <a href="">
+                    <img src="{% static "images/chat-icon.svg" %}" alt="chat">
                 </a>
-                <a href="" style="text-decoration: none; color: white;">
-                    <div class="row pb-3 pt-3">
-                        <h5>Task</h5>
-                    </div>
-                </a>
-                <a href="" style="text-decoration: none; color: white;">
-                    <div class="row pb-3 pt-3">
-                        <h5>Employees</h5>
-                    </div>
-                </a>
-                <a href="" style="text-decoration: none; color: white;">
-                    <div class="row pb-3 pt-3">
-                        <h5>client</h5>
-                    </div>
-                </a>
-                <a href="" style="text-decoration: none; color: white;">
-                    <div class="row pb-3 pt-3">
-                        <h5>Help</h5>
-                    </div>
+                <a href="">
+                    <img src="{% static "images/message-icon.svg" %}" alt="Message">
                 </a>
             </div>
-        </div>
-        <!-- body -->
-        <div class="col-10 pt-5">
-            <nav class="float-end">
-                <div class="row d-flex">
-                    <div class="col-6 d-flex">
-                        <div class="col-2 pt-2 me-4">
-                            <a href="" class="navicon">
-                                <img src="messageicon.svg" alt="">
-                            </a>
-                        </div>
-                        <div class="col-2">
-                            <a href="">
-                                <img src="interlineicon.svg" alt="">
-                            </a>
-                        </div>
-                        <div class="col-2 pt-2 me-4">
-                            <a href="" class="navicon">
-                                <img src="Settingsicon.svg" alt="">
-                            </a>
-                        </div>
-                        <div class="col-2 interline">
-                            <a href="">
-                                <img src="interlineicon.svg" alt="">
-                            </a>
-                        </div>
-                        <div class="col-2 pt-2 me-3">
-                            <a href="" class="navicon">
-                                <img src="Bellicon.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- profile -->
-                    <div class="col-6">
-                        <div class="col-6">
-                            <div class="row">
-                                <h5 class="" style="width:60vh; color: greenyellow;">Fathima Bisiriya</h5>
-                            </div>
-                            <div class="row" style="width:50vh;">
-                                <p>Project Co-Ordinator</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <div>
-                {% if request.user.is_authenticated %}
-                
-                {% endif %}
-            </div>
-            <div class="templates" style="align-items: center; justify-content: center; margin-top: 50vh;">
-                {% block content %}
-                {% endblock content %}
+            <div class="topnav_profile">
+                {% include "base/profile.html" %}
             </div>
         </div>
     </div>
-    
+    <div class="mainpage row me-5">
+        <div class="sidenav col-1 container-fluid">
+            <div class="section_button">
+                <div class="dashboard sidenav_buttons">
+                    <a href="">
+                        <img src="{% static "images/dashboard-icon.svg" %}" alt="">
+                        <p>Dashboard</p>
+                    </a>
+                </div>
+            </div>
+            <div class="section_button">
+                <div class="task sidenav_buttons">
+                    <a href="">
+                        <img src="{% static "images/task-icon.svg" %}" alt="Task">
+                        <p>Task</p>
+                    </a>
+                </div>
+            </div>
+            <div class="section_button">
+                <div class="clients sidenav_buttons">
+                    <a href="">
+                        <img src="{% static "images/clients-icon.svg" %}" alt="Clients">
+                        <p>Clients</p>
+                    </a>
+                </div>
+            </div>
+            <div class="section_button">
+                <div class="calender sidenav_buttons">
+                    <a href="">
+                        <img src="{% static "images/calender-icon.svg" %}" alt="Calender">
+                        <p>Calender</p>
+                    </a>
+                </div>
+            </div>
+            <div class="section_button">
+                <div class="employees sidenav_buttons">
+                    <a href="">
+                        <img src="{% static "images/employees-icon.svg" %}" alt="Employees">
+                        <p>Employees</p>
+                    </a>
+                </div>
+            </div>
+            <div class="section_button">
+                <div class="settings sidenav_buttons">
+                    <a href="">
+                        <img src="{% static "images/settings-icon.svg" %}" alt="Settings">
+                        <p>Settings</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="content col-11 container-fluid">
+            {% block content %}
 
-
+            {% endblock content %}
+        </div>
+    </div>
     <!-- Bootstrap scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>

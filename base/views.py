@@ -17,7 +17,6 @@ def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
         try:
             user = User.objects.get(username=username)
         except:
@@ -35,19 +34,16 @@ def loginPage(request):
     context = {}
     return render(request, 'base/login_page.html', context)
 
-def LogoutUser(request):
+def logoutUser(request):
     logout(request)
     return redirect('home')
 
 def home(request):
     return render(request, 'base/home.html')
 
-
-
 @login_required(login_url='login')
 def cordinator(request):
     return render(request, 'base/cordinator.html')
-
 
 @login_required(login_url='login')
 def manageTasks(request):
