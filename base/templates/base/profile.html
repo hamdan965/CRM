@@ -1,7 +1,8 @@
+{% load static %}
 {% if request.user.is_authenticated %}
     <div class="photo">
         <div class="user_photo">
-            <img src="{% static "images/user_photo.jpg" %}" alt="Profile photo" height="55px">
+            <img src="{% static "/images/user_photo.jpg" %}" alt="Profile photo" height="55px">
         </div>
     </div>
     <div class="user_name">

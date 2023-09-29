@@ -13,22 +13,24 @@ load_dotenv()
 
 
 def loginPage(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            try:
+                user = User.objects.get(username=username)
+            except:
+                messages.error(request, 'User does not Exist')
 
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        try:
-            user = User.objects.get(username=username)
-        except:
-            messages.error(request, 'User does not Exist')
+            user = authenticate(request, username=username, password=password)
 
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            messages.error(request, 'Username Or Password Does not Exist')
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            else:
+                messages.error(request, 'Username Or Password Does not Exist')
 
 
     context = {}
@@ -38,6 +40,7 @@ def logoutUser(request):
     logout(request)
     return redirect('home')
 
+@login_required(login_url='login')
 def home(request):
     return render(request, 'base/home.html')
 

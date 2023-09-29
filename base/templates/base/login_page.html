@@ -1,18 +1,98 @@
-{% extends 'base/main.html' %}
+{% load static %}
 
-{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<style>
+    /* LoginPage */
+    .login_main{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 25vh 0 0 0;
+    }
+    .side_image_loginpage{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15vh 0 0 0;
+    }
+    .header_loginpage{
+        padding: 0 0 1em 0.5em;
+    }
+    .header_loginpage >*{
+        padding: 0 0 0.2em 0;
+    }
+    .header_loginpage > p{
+        color: gray;
+    }
+    .side_image_loginpage > img{
+        width: 100vh;
+    }
+    .login_form{
+        width: 90%;
+    }
+    .checkbox_loginpage{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content:space-around;
+    }
+    .checkbox_loginpage >*{
+        padding: 2em 1.5em 0 0;
+    }
+    .password_loginpage{
+        padding: 1.5em 0 0 0;
+    }
+    .signin_button_loginpage{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 2em 0 0 0;
+    }
 
-<div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        <label for="">Username</label>
-        <input type="text" value="username" name="username" placeholder="Enter Username"/>
-
-        <label for="">Password</label>
-        <input type="text" value="password" name="password" placeholder="Enter password"/>
-
-        <input type="submit">
-    </form>
+    /* LoginPage End */
+</style>
+<div class="row">
+    <div class="col-6">
+        <div class="login_main">
+            <form method="POST">
+                <div class="header_loginpage">
+                    <h1>Welcome Back</h1>
+                    <p>Welcome back! Please enter your details.</p>
+                </div>
+                <div class="form-group login_form">
+                    {% csrf_token %}
+                    <label style="padding: 0 0 0.5em 0;" for="">Username</label>
+                    <input name="username" type="username" class="form-control" placeholder="Enter username"/>
+                    <label style="padding: 1em 0 0.5em 0;" for="" class="password_loginpage">Password</label>
+                    <input name="password" type="password" class="form-control" placeholder="Password"/>
+                </div>
+                <div class="checkbox_loginpage">
+                    <div>
+                        <input type="checkbox" class="form-check-input">
+                        <small>Remember for 30 days</small>
+                    </div>
+                    <div>
+                        <small>Forget Password?</small>
+                    </div>
+                </div>
+                <div class="signin_button_loginpage">
+                    <a href="#" style="text-decoration: none;">
+                        <div>
+                            <input style="background-color: blue; padding: 1em 5em 1em 5em; border-radius: 2em; border: white; color: white;" type="submit">
+                        </div>
+                    </a>
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: center; padding: 1.5em 0 0 0;">
+                    <small style="margin: 0 0 0 -1em;">Don't have an account?</small>
+                    <small style="padding: 0 0 0 1em;"><a href="">Sign up</a></small>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="side_image_loginpage col-6">
+        <img src="{% static "images/login-page-side.svg" %}" alt="picture illustration">
+    </div>
 </div>
-
-{% endblock content %}

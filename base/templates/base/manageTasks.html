@@ -1,5 +1,5 @@
 {% extends 'base/main.html' %}
-
+{% load static %}
 {% block content %}
 <div class="row main_section">
   <div class="row">
@@ -29,8 +29,8 @@
               <th scope="col">Client</th>
               <th scope="col">Assignee</th>
               <th scope="col">Progress</th>
-              <th scope="col">Due Date</th>
-              <th scope="col">Post Date</th>
+              <th scope="col">Due</th>
+              <th scope="col">Post</th>
               <th scope="col">Content</th>
               <th scope="col">Manage</th>
             </tr>
@@ -46,10 +46,14 @@
                 <td>{{work.progress}}</td>
                 <td>{{work.due}}</td>
                 <td>{{work.post}}</td>
-                <td><a href="/description/{{work.id}}/">{{work.content}}</a></td>
+                <td class="col-2 text-truncate" style="max-width: 150px"><a href="/description/{{work.id}}/">{{work.content}}</a></td>
                 <td>
-                  <a href="{% url 'updateTask' work.id %}">Update room</a>
-                  <a href="{% url 'deleteTask' work.id %}">delete</a>
+                  <a href="{% url 'updateTask' work.id %}" style="color: white;">
+                    <img style="width: 30px;" src="{% static "/images/update-icon.svg" %}" alt="Update">
+                  </a>
+                  <a href="{% url 'deleteTask' work.id %}" style="color: white; width: 10px; padding-left: 1em;">
+                    <img style="width: 25px;" src="{% static "/images/delete-icon.svg" %}" alt="Delete">
+                  </a>
                 </td>
               </tr>
             {% endfor %}

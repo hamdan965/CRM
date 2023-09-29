@@ -12,11 +12,11 @@
 <body style="background-color: #dfe5ff;">
     <div class="topnav container-fluid row">
         <a href="" class="logo col">
-            <img src="{% static "images/logo.png" %}" height="50px" alt="Logo">
+            <img src="{% static "images/companylogo.png" %}" height="70px" alt="Logo">
         </a>
         <div class="profile col">
             <div class="topnav_buttons">
-                <a href="">
+                <a href="{% url "test" %}">
                     <img src="{% static "images/chat-icon.svg" %}" alt="chat">
                 </a>
                 <a href="">
@@ -40,7 +40,7 @@
             </div>
             <div class="section_button">
                 <div class="task sidenav_buttons">
-                    <a href="">
+                    <a href="{% url "manageTasks" %}">
                         <img src="{% static "images/task-icon.svg" %}" alt="Task">
                         <p>Task</p>
                     </a>
