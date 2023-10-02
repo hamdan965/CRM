@@ -7,7 +7,7 @@
     padding: 1em;
 }
 .logo > img{
-    padding: 1em 0 0 0.6em;
+    padding: 1em 0 0 1em;
 }
 .profile{
     display: flex;
@@ -33,7 +33,7 @@
     flex-wrap: nowrap;
 }
 .section_button{
-    margin: 0.5em 0 0 0;
+    margin: 0.5em 0 0 0.5em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,6 +91,7 @@
     flex-direction: row;
     flex-wrap: none;
     justify-content: space-between;
+    padding: 1em 0 0 0;
     }
   .newtask_button{
     background-color: #3478ff;
@@ -98,8 +99,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 2em;
-    padding: 2vh;
+    border-radius: 1em;
+    padding: 2vh 5vh 2vh 5vh;
     }
   .newtask_button > a{
     text-decoration: none;
@@ -107,5 +108,8 @@
   }
   .newtask_button:hover{
     box-shadow: 1px 0px 10px lightblue;
+  }
+  .work_table{
+    padding: 0 0 0 1em;
   }
 /* MANAGETASKEND */

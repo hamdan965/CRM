@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Work
 from .forms import WorkForm
+from .decorators import unauthenticated_user, allowed_users
 
 import openai
 import os
@@ -48,6 +49,7 @@ def home(request):
 def cordinator(request):
     return render(request, 'base/cordinator.html')
 
+
 @login_required(login_url='login')
 def manageTasks(request):
     works = Work.objects.all()
@@ -73,6 +75,7 @@ def addTask(request):
     context = {'form':form}
     return render(request, 'base/addtask.html', context)
 
+@allowed_users(allowed_roles=['admin'])
 @login_required(login_url='login')
 def updateTask(request, pk):
     work = Work.objects.get(id=pk)
@@ -87,6 +90,7 @@ def updateTask(request, pk):
     context = {'form': form}
     return render(request, 'base/addtask.html', context)
 
+@allowed_users(allowed_roles=['admin'])
 @login_required(login_url='login')
 def deleteTask(request, pk):
     work = Work.objects.get(id=pk)
