@@ -24,13 +24,12 @@
           <thead>
             <tr>
               <th scope="col">ID ~ #</th>
-              <th scope="col">Date</th>
-              <th scope="col">Task</th>
+              <th scope="col">Post date</th>
+              <th scope="col">Task Name</th>
               <th scope="col">Client</th>
               <th scope="col">Assignee</th>
               <th scope="col">Progress</th>
               <th scope="col">Due</th>
-              <th scope="col">Post</th>
               <th scope="col">Content</th>
               <th scope="col">Manage</th>
             </tr>
@@ -39,13 +38,12 @@
             {% for work in works %}
               <tr>
                 <th scope="row">{{work.id}}</th>
-                <td>{{work.date}}</td>
+                <td>{{work.post}}</td>
                 <td>{{work.task}}</td>
                 <td>{{work.client}}</td>
                 <td>{{work.asignee}}</td>
                 <td>{{work.progress}}</td>
-                <td>{{work.due}}</td>
-                <td>{{work.post}}</td>
+                <td>{{work.dueDate}}</td>
                 <td class="col-2 text-truncate" style="max-width: 150px"><a href="/description/{{work.id}}/">{{work.content}}</a></td>
                 <td>
                   <a href="{% url 'updateTask' work.id %}" style="color: white;">

@@ -1,9 +1,11 @@
 {% load static %}
 {% if request.user.is_authenticated %}
     <div class="photo">
-        <div class="user_photo">
-            <img src="{% static "/images/user_photo.jpg" %}" alt="Profile photo" height="55px">
-        </div>
+        {% for employee in employees %}
+            <div class="user_photo">
+                <img src="{{ product.image.url }}" alt="Profile photo" height="55px">
+            </div>
+        {% endfor %}
     </div>
     <div class="user_name">
         <p><b>{{user.username}}</b></p>

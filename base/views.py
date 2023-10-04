@@ -3,9 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from .models import Work
+from .models import Work, Employee
 from .forms import WorkForm
-from .decorators import unauthenticated_user, allowed_users
+from .decorators import allowed_users
 
 import openai
 import os
@@ -51,8 +51,16 @@ def cordinator(request):
 
 
 @login_required(login_url='login')
+def navprofile(request):
+    profileInfo = request.user.employee.order_set.all()
+    print('profileInfo', profileInfo)
+    context = {'profileInfo': profileInfo}
+    return render(request, 'navprofile.html', context)
+
+
+@login_required(login_url='login')
 def manageTasks(request):
-    works = Work.objects.all()
+    works = Work.objects.all().order_by('dueDate')
     context = {'works':works}
     return render(request, 'base/manageTasks.html', context)
 
@@ -70,12 +78,12 @@ def addTask(request):
         form = WorkForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('cordinator')
+            return redirect('manageTasks')
 
     context = {'form':form}
     return render(request, 'base/addtask.html', context)
 
-@allowed_users(allowed_roles=['admin'])
+@allowed_users(allowed_roles=['admin','content writer', 'project cordinator'])
 @login_required(login_url='login')
 def updateTask(request, pk):
     work = Work.objects.get(id=pk)
