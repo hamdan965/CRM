@@ -128,8 +128,22 @@ STATICFILES = [
     BASE_DIR / 'static'
 ]
 
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/media/'
+
+
+# Define the names of the groups
+ADMIN_GROUP = 'admin'
+COORDINATOR_GROUP = 'project coordinator'
+DEFAULT_GROUP = 'user'
+
+# Define the URLs to redirect to based on the group
+REDIRECT_URLS = {
+    ADMIN_GROUP: 'admin',
+    COORDINATOR_GROUP: 'test',
+    DEFAULT_GROUP: 'home'
+}
+
 
 
 # Default primary key field type

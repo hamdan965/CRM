@@ -3,8 +3,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.conf import settings
 from .models import Work, Employee
 from .forms import WorkForm
+from .decorators import allowed_users
+
 
 import openai
 import os
@@ -35,6 +38,9 @@ def loginPage(request):
 
     context = {}
     return render(request, 'base/login_page.html', context)
+
+def navprofile(request):
+    return render(request, 'base/navprofile.html')
 
 def logoutUser(request):
     logout(request)
@@ -87,7 +93,7 @@ def updateTask(request, pk):
     context = {'form': form}
     return render(request, 'base/addtask.html', context)
 
-@allowed_users(allowed_roles=['admin'])
+@allowed_users(allowed_roles=[settings.ADMIN_GROUP])
 @login_required(login_url='login')
 def deleteTask(request, pk):
     work = Work.objects.get(id=pk)
