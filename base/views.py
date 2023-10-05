@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Work, Employee
 from .forms import WorkForm
-from .decorators import allowed_users
 
 import openai
 import os
@@ -49,15 +48,6 @@ def home(request):
 def cordinator(request):
     return render(request, 'base/cordinator.html')
 
-
-@login_required(login_url='login')
-def navprofile(request):
-    profileInfo = request.user.employee.order_set.all()
-    print('profileInfo', profileInfo)
-    context = {'profileInfo': profileInfo}
-    return render(request, 'navprofile.html', context)
-
-
 @login_required(login_url='login')
 def manageTasks(request):
     works = Work.objects.all().order_by('dueDate')
@@ -83,7 +73,6 @@ def addTask(request):
     context = {'form':form}
     return render(request, 'base/addtask.html', context)
 
-@allowed_users(allowed_roles=['admin','content writer', 'project cordinator'])
 @login_required(login_url='login')
 def updateTask(request, pk):
     work = Work.objects.get(id=pk)
