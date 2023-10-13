@@ -1,14 +1,12 @@
 {% load static %}
 {% if request.user.is_authenticated %}
     <div class="photo">
-        {% for employee in employees %}
-            <div class="user_photo">
-                <img src="{{ user.employee.profile_pic.url }}" alt="Profile photo" height="55px">
-            </div>
-        {% endfor %}
+        <div class="user_photo" >
+            <img src="{{request.user.employee.profile_pic.url}}" alt="Profile photo" style="border-radius: 70%; height: 25px;">
+        </div>
     </div>
     <div class="user_name">
-        <p><b>{{user.username}}</b></p>
+        <p><b>{{request.user.employee.name}}</b></p>
         <small>User Role</small>
     </div>
 {% else %}

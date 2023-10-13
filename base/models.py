@@ -1,14 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
 
-    
+# Create your models here.
 class Employee(models.Model):
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     position = models.CharField(max_length=200)
-    profile_pic = models.ImageField(upload_to='profilephoto/',null=True, blank=True)
+    profile_pic = models.ImageField(default="companylogo.png",null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -16,6 +15,7 @@ class Employee(models.Model):
 class Client(models.Model):
     name = models.CharField(max_length=200)
     onBoardDate = models.DateField()
+    client_pic = models.ImageField(default="companylogo.png",null=True, blank=True)
 
     def __str__(self):
         return self.name

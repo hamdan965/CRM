@@ -40,7 +40,8 @@ def loginPage(request):
     return render(request, 'base/login_page.html', context)
 
 def navprofile(request):
-    return render(request, 'base/navprofile.html')
+    context = {}
+    return render(request, 'base/navprofile.html', context)
 
 def logoutUser(request):
     logout(request)
@@ -51,14 +52,16 @@ def home(request):
     return render(request, 'base/home.html')
 
 @login_required(login_url='login')
-def cordinator(request):
-    return render(request, 'base/cordinator.html')
-
-@login_required(login_url='login')
 def manageTasks(request):
     works = Work.objects.all().order_by('dueDate')
     context = {'works':works}
     return render(request, 'base/manageTasks.html', context)
+
+@login_required(login_url='login')
+def employees(request):
+    employeesUsers = Employee.objects.all()
+    context = {'employeesUsers':employeesUsers}
+    return render(request, 'base/employees.html', context)
 
 @login_required(login_url='login')
 def description(request, pk):
