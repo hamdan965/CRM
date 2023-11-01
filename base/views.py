@@ -9,7 +9,7 @@ from .forms import WorkForm
 from .decorators import allowed_users
 
 
-import openai
+# import openai
 import os
 from dotenv import load_dotenv
 load_dotenv()
