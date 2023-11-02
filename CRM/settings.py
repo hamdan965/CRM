@@ -32,7 +32,7 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ['165.232.176.145']
+ALLOWED_HOSTS = []
 
 
 # Application definition
