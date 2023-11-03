@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Template</title>
     <!-- Style -->
-    <link rel="stylesheet" type="text/css" href="{% static "styles/main.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "/base/styles/main.css" %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body style="background-color: #dfe5ff;">
     <div class="topnav container-fluid row">
         <a href="" class="logo col">
-            <img src="{% static "images/companylogo.png" %}" height="70px" alt="Logo">
+            <img src="{% static "base/images/companylogo.png" %}" height="70px" alt="Logo">
         </a>
         <div class="profile col">
             <div class="topnav_buttons">
                 <a href="{% url "test" %}">
-                    <img src="{% static "images/chat-icon.svg" %}" alt="chat">
+                    <img src="{% static "base/images/chat-icon.svg" %}" alt="chat">
                 </a>
                 <a href="">
-                    <img src="{% static "images/message-icon.svg" %}" alt="Message">
+                    <img src="{% static "base/images/message-icon.svg" %}" alt="Message">
                 </a>
             </div>
             <div class="topnav_profile">
@@ -33,7 +33,7 @@
             <div class="section_button">
                 <div class="dashboard sidenav_buttons">
                     <a href="">
-                        <img src="{% static "images/dashboard-icon.svg" %}" alt="">
+                        <img src="{% static "base/images/dashboard-icon.svg" %}" alt="">
                         <p>Dashboard</p>
                     </a>
                 </div>
@@ -41,7 +41,7 @@
             <div class="section_button">
                 <div class="task sidenav_buttons">
                     <a href="{% url "manageTasks" %}">
-                        <img src="{% static "images/task-icon.svg" %}" alt="Task">
+                        <img src="{% static "base/images/task-icon.svg" %}" alt="Task">
                         <p>Task</p>
                     </a>
                 </div>
@@ -49,7 +49,7 @@
             <div class="section_button">
                 <div class="clients sidenav_buttons">
                     <a href="">
-                        <img src="{% static "images/clients-icon.svg" %}" alt="Clients">
+                        <img src="{% static "base/images/clients-icon.svg" %}" alt="Clients">
                         <p>Clients</p>
                     </a>
                 </div>
@@ -57,7 +57,7 @@
             <div class="section_button">
                 <div class="calender sidenav_buttons">
                     <a href="">
-                        <img src="{% static "images/calender-icon.svg" %}" alt="Calender">
+                        <img src="{% static "base/images/calender-icon.svg" %}" alt="Calender">
                         <p>Calender</p>
                     </a>
                 </div>
@@ -65,7 +65,7 @@
             <div class="section_button">
                 <div class="employees sidenav_buttons">
                     <a href="{% url "employees" %}">
-                        <img src="{% static "images/employees-icon.svg" %}" alt="Employees">
+                        <img src="{% static "base/images/employees-icon.svg" %}" alt="Employees">
                         <p>Employees</p>
                     </a>
                 </div>
@@ -73,7 +73,7 @@
             <div class="section_button">
                 <div class="settings sidenav_buttons">
                     <a href="">
-                        <img src="{% static "images/settings-icon.svg" %}" alt="Settings">
+                        <img src="{% static "base/images/settings-icon.svg" %}" alt="Settings">
                         <p>Settings</p>
                     </a>
                 </div>
