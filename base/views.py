@@ -51,7 +51,7 @@ def logoutUser(request):
 def home(request):
     return render(request, 'base/home.html')
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def manageTasks(request):
     works = Work.objects.all().order_by('dueDate')
     context = {'works':works}
@@ -107,25 +107,25 @@ def deleteTask(request, pk):
 
 
 
-api_key = os.getenv("OPENAI_KEY", None)
+# api_key = os.getenv("OPENAI_KEY", None)
 
-def test(request):
-    chatbot_response = None
-    if api_key is not None and request.method == 'POST':
-        openai.api_key = api_key
-        user_input = request.POST.get('user_input')
-        prompt = user_input
+# def test(request):
+#     chatbot_response = None
+#     if api_key is not None and request.method == 'POST':
+#         openai.api_key = api_key
+#         user_input = request.POST.get('user_input')
+#         prompt = user_input
 
-        completion = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages = [
-                {"role":"user", "content":prompt}
-            ],
-            max_tokens = 256,
-            temperature = 0.5
-            )
-        print(completion)
-        chatbot_response = completion.choices[0].message['content']
-    return render(request, 'base/test.html',{"response": chatbot_response})
+#         completion = openai.ChatCompletion.create(
+#             model="gpt-3.5-turbo",
+#             messages = [
+#                 {"role":"user", "content":prompt}
+#             ],
+#             max_tokens = 256,
+#             temperature = 0.5
+#             )
+#         print(completion)
+#         chatbot_response = completion.choices[0].message['content']
+#     return render(request, 'base/test.html',{"response": chatbot_response})
         
 
