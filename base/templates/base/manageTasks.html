@@ -47,10 +47,10 @@
                 <td class="col-2 text-truncate" style="max-width: 150px"><a href="/description/{{work.id}}/">{{work.content}}</a></td>
                 <td>
                   <a href="{% url 'updateTask' work.id %}" style="color: white;">
-                    <img style="width: 30px;" src="{% static "/images/update-icon.svg" %}" alt="Update">
+                    <img style="width: 30px;" src="{% static "base/images/update-icon.svg" %}" alt="Update">
                   </a>
                   <a href="{% url 'deleteTask' work.id %}" style="color: white; width: 10px; padding-left: 1em;">
-                    <img style="width: 25px;" src="{% static "/images/delete-icon.svg" %}" alt="Delete">
+                    <img style="width: 25px;" src="{% static "base/images/delete-icon.svg" %}" alt="Delete">
                   </a>
                 </td>
               </tr>
