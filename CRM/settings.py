@@ -27,8 +27,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = 'True'
-# os.environ.get('DEBUG', 'False') =
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+# DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+# DEBUG = 'True'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
