@@ -6,21 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Template</title>
     <!-- Style -->
-    <link rel="stylesheet" type="text/css" href="{% static "/base/styles/main.css" %}">
+    <style>
+            *{
+        padding: 0;
+        margin: 0;
+        }
+        .topnav{
+            padding: 1em;
+        }
+        .logo > img{
+            padding: 1em 0 0 1em;
+        }
+        .profile{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: end;
+            align-items: center;
+            margin: 0 1.5em 0 0;
+        }
+        .topnav_buttons{
+            padding: 0 2em 0 0;
+        }
+        .topnav_buttons >*{
+            padding: 0 2em 0 0;
+            color: #dfe5ff;
+        }
+        .topnav_buttons > a > img{
+            width: 30px;
+        }
+        .topnav_profile{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+        .section_button{
+            margin: 0.5em 0 0 0.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            border-radius: 1em;
+        }
+        .section_button:hover{
+            background-color: rgb(254, 253, 253);
+            box-shadow: 1px 0px 10px lightblue;
+        }
+        .sidenav{
+            margin:  0 0 0 1em;
+        }
+        .sidenav_buttons{
+            text-align: center;
+            margin: 1em;
+            padding: 1em;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .sidenav_buttons > a{
+            text-decoration: none;
+            color: black;
+        }
+        .sidenav_buttons > a > img{
+            height: 30px;
+            margin: 1.5em 0 0 0;
+        }
+        .dashboard > a > p{
+            margin-left: -0.5em;
+        }
+    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body style="background-color: #dfe5ff;">
     <div class="topnav container-fluid row">
         <a href="" class="logo col">
-            <img src="{% static "base/images/companylogo.png" %}" height="70px" alt="Logo">
+            <img src="https://goscala.in/imagescrm/companylogo.png" height="70px" alt="Logo">
         </a>
         <div class="profile col">
             <div class="topnav_buttons">
                 <a href="">
-                    <img src="{% static "base/images/chat-icon.svg" %}" alt="chat">
+                    <img src="https://goscala.in/imagescrm/chat-icon.svg" alt="chat">
                 </a>
                 <a href="">
-                    <img src="{% static "base/images/message-icon.svg" %}" alt="Message">
+                    <img src="https://goscala.in/imagescrm/message-icon.svg" alt="Message">
                 </a>
             </div>
             <div class="topnav_profile">
@@ -33,7 +100,7 @@
             <div class="section_button">
                 <div class="dashboard sidenav_buttons">
                     <a href="">
-                        <img src="{% static "base/images/dashboard-icon.svg" %}" alt="">
+                        <img src="https://goscala.in/imagescrm/dashboard-icon.svg" alt="">
                         <p>Dashboard</p>
                     </a>
                 </div>
@@ -41,7 +108,7 @@
             <div class="section_button">
                 <div class="task sidenav_buttons">
                     <a href="{% url "manageTasks" %}">
-                        <img src="{% static "base/images/task-icon.svg" %}" alt="Task">
+                        <img src="https://goscala.in/imagescrm/dashboard-icon.svg" alt="Task">
                         <p>Task</p>
                     </a>
                 </div>
@@ -49,7 +116,7 @@
             <div class="section_button">
                 <div class="clients sidenav_buttons">
                     <a href="">
-                        <img src="{% static "base/images/clients-icon.svg" %}" alt="Clients">
+                        <img src="https://goscala.in/imagescrm/clients-icon.svg" alt="Clients">
                         <p>Clients</p>
                     </a>
                 </div>
@@ -57,7 +124,7 @@
             <div class="section_button">
                 <div class="calender sidenav_buttons">
                     <a href="">
-                        <img src="{% static "base/images/calender-icon.svg" %}" alt="Calender">
+                        <img src="https://goscala.in/imagescrm/calender-icon.svg" alt="Calender">
                         <p>Calender</p>
                     </a>
                 </div>
@@ -65,7 +132,7 @@
             <div class="section_button">
                 <div class="employees sidenav_buttons">
                     <a href="{% url "employees" %}">
-                        <img src="{% static "base/images/employees-icon.svg" %}" alt="Employees">
+                        <img src="https://goscala.in/imagescrm/employees-icon.svg" alt="Employees">
                         <p>Employees</p>
                     </a>
                 </div>
@@ -73,7 +140,7 @@
             <div class="section_button">
                 <div class="settings sidenav_buttons">
                     <a href="">
-                        <img src="{% static "base/images/settings-icon.svg" %}" alt="Settings">
+                        <img src="https://goscala.in/imagescrm/settings-icon.svg" alt="Settings">
                         <p>Settings</p>
                     </a>
                 </div>

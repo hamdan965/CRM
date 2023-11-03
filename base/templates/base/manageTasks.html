@@ -1,6 +1,40 @@
 {% extends 'base/main.html' %}
 {% load static %}
 {% block content %}
+<style>
+  .main_section{
+    background-color: white;
+    border-radius: 30px 30px 0 0;
+    padding: 4vh 2vh 2vh 4vh;
+    box-shadow: 1px 0px 10px lightblue;
+  }
+  .tasks_heading{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: none;
+    justify-content: space-between;
+    padding: 1em 0 0 0;
+    }
+  .newtask_button{
+    background-color: #3478ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    padding: 2vh 5vh 2vh 5vh;
+    }
+  .newtask_button > a{
+    text-decoration: none;
+    color: white;
+  }
+  .newtask_button:hover{
+    box-shadow: 1px 0px 10px lightblue;
+  }
+  .work_table{
+    padding: 0 0 0 1em;
+  }
+</style>
 <div class="row main_section">
   <div class="row">
       <div class="tasks_heading">
@@ -47,10 +81,10 @@
                 <td class="col-2 text-truncate" style="max-width: 150px"><a href="/description/{{work.id}}/">{{work.content}}</a></td>
                 <td>
                   <a href="{% url 'updateTask' work.id %}" style="color: white;">
-                    <img style="width: 30px;" src="{% static "base/images/update-icon.svg" %}" alt="Update">
+                    <img style="width: 30px;" src="https://goscala.in/imagescrm/update-icon.svg" alt="Update">
                   </a>
                   <a href="{% url 'deleteTask' work.id %}" style="color: white; width: 10px; padding-left: 1em;">
-                    <img style="width: 25px;" src="{% static "base/images/delete-icon.svg" %}" alt="Delete">
+                    <img style="width: 25px;" src="https://goscala.in/imagescrm/delete-icon.svg" alt="Delete">
                   </a>
                 </td>
               </tr>

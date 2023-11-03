@@ -1,4 +1,15 @@
 {% load static %}
+<style>
+    .user_photo > img{
+    border-radius: 50%;
+    }
+    .topnav_profile >*{
+        margin: 0 1em 0 0;
+    }
+    .user_name > p{
+        margin: 0;
+    }
+</style>
 {% if request.user.is_authenticated %}
     <div class="photo">
         <div class="user_photo" >
