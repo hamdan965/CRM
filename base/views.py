@@ -47,7 +47,7 @@ def logoutUser(request):
     logout(request)
     return redirect('home')
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def home(request):
     return render(request, 'base/home.html')
 
@@ -57,19 +57,19 @@ def manageTasks(request):
     context = {'works':works}
     return render(request, 'base/manageTasks.html', context)
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def employees(request):
     employeesUsers = Employee.objects.all()
     context = {'employeesUsers':employeesUsers}
     return render(request, 'base/employees.html', context)
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def description(request, pk):
     work = Work.objects.get(id=pk)
     context = {'work': work}
     return render(request, 'base/description.html', context)
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def addTask(request):
     form = WorkForm()
 
@@ -82,7 +82,7 @@ def addTask(request):
     context = {'form':form}
     return render(request, 'base/addtask.html', context)
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def updateTask(request, pk):
     work = Work.objects.get(id=pk)
     form = WorkForm(instance=work)
@@ -96,8 +96,8 @@ def updateTask(request, pk):
     context = {'form': form}
     return render(request, 'base/addtask.html', context)
 
-@allowed_users(allowed_roles=[settings.ADMIN_GROUP])
-@login_required(login_url='login')
+# @allowed_users(allowed_roles=[settings.ADMIN_GROUP])
+# @login_required(login_url='login')
 def deleteTask(request, pk):
     work = Work.objects.get(id=pk)
     if request.method == 'POST':
