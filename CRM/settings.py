@@ -27,13 +27,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 # DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-# DEBUG = 'True'
+# DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = 'True'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['crm-production-41dc.up.railway.app', '*']
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -141,8 +141,6 @@ MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 
 
-
-
 # Define the names of the groups
 ADMIN_GROUP = 'admin'
 COORDINATOR_GROUP = 'project coordinator'
@@ -154,8 +152,6 @@ REDIRECT_URLS = {
     COORDINATOR_GROUP: 'test',
     DEFAULT_GROUP: 'home'
 }
-
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

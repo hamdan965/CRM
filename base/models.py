@@ -12,6 +12,8 @@ class Employee(models.Model):
     def __str__(self):
         return self.name
 
+# {{request.user.employee.profile_pic.url}}
+
 class Client(models.Model):
     name = models.CharField(max_length=200)
     onBoardDate = models.DateField()
