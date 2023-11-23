@@ -10,6 +10,7 @@ urlpatterns = [
     path('manageTasks/', views.manageTasks, name="manageTasks"),
     path('description/<str:pk>/', views.description, name="description"),
     path('employees/', views.employees, name='employees'),
+    path("clientinfo", views.clientinfo, name="clientinfo"),
 
     path('addTask/', views.addTask, name='addTask'),
     path('updateTask/<str:pk>/', views.updateTask, name='updateTask'),

@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
-from .models import Work, Employee
+from .models import Work, Employee, Client
 from .forms import WorkForm
 from .decorators import allowed_users
 
@@ -56,6 +56,11 @@ def manageTasks(request):
     works = Work.objects.all().order_by('dueDate')
     context = {'works':works}
     return render(request, 'base/manageTasks.html', context)
+
+def clientinfo(request):
+    clients = Client.objects.all()
+    context = {'clients' : clients}
+    return render(request, 'base/clientinfo.html', context)
 
 # @login_required(login_url='login')
 def employees(request):
