@@ -14,6 +14,7 @@ urlpatterns = [
 
     path('addTask/', views.addTask, name='addTask'),
     path('updateTask/<str:pk>/', views.updateTask, name='updateTask'),
-    path('deleteTask/<str:pk>/', views.deleteTask, name='deleteTask')
+    path('deleteTask/<str:pk>/', views.deleteTask, name='deleteTask'),
+    path('addclient/', views.addclient, name="addclient")
 ]
 # path('test/', views.test, name='test') 

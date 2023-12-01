@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 from .models import Work, Employee, Client
-from .forms import WorkForm
+from .forms import WorkForm, ClientForm
 from .decorators import allowed_users
 
 
@@ -86,6 +86,18 @@ def addTask(request):
 
     context = {'form':form}
     return render(request, 'base/addtask.html', context)
+
+def addclient(request):
+    form = ClientForm()
+
+    if request.method == "POST":
+        form = ClientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('addclient')
+        
+    context = {'form': form}
+    return render(request, 'base/addclient.html')
 
 # @login_required(login_url='login')
 def updateTask(request, pk):
